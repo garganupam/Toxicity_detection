@@ -1,0 +1,97 @@
+# ═══════════════════════════════════════════════════════════════════
+# ToxiGAN .gitignore — keeps repo lightweight
+# ═══════════════════════════════════════════════════════════════════
+
+# ── Model checkpoints & weights (HEAVY) ──────────────────────────
+*.pt
+*.pth
+*.bin
+*.onnx
+*.safetensors
+*.h5
+*.pkl
+*.pickle
+*.joblib
+
+# ── Data files (HEAVY) ──────────────────────────────────────────
+data/
+data/raw/
+data/raw/*.txt
+*.txt
+!README.md
+!requirements.txt
+!LICENSE.txt
+
+# ── Artifacts (generated during training) ────────────────────────
+artifacts/
+artifacts/**
+*.id
+vocab.txt
+data_gen_toxigan.json
+
+# ── Outputs & reports ────────────────────────────────────────────
+outputs/
+outputs/**
+classifier_outputs/
+reports/
+*.parquet
+
+# ── Save directory (old layout) ─────────────────────────────────
+save/
+
+# ── Python ───────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# ── Virtual environments ─────────────────────────────────────────
+.venv/
+venv/
+env/
+.conda/
+*.conda
+
+# ── Jupyter notebooks ────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── IDE ──────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ── OS files ─────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Environment variables ────────────────────────────────────────
+.env
+.env.local
+
+# ── HuggingFace cache (can be HUGE) ─────────────────────────────
+.cache/
+huggingface/
+
+# ── NLTK data ────────────────────────────────────────────────────
+nltk_data/
+
+# ── Logs ─────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Compressed files ─────────────────────────────────────────────
+*.zip
+*.tar.gz
+*.tar
+*.7z

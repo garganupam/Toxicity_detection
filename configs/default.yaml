@@ -1,0 +1,59 @@
+# ── ToxiGAN Default Configuration ─────────────────────────────────────────
+
+paths:
+  data_dir: "data/raw"
+  artifacts_dir: "artifacts"
+  checkpoint_dir: "artifacts/checkpoints"
+  outputs_dir: "outputs"
+
+dataset:
+  name: "jigsaw"
+  toxic_classes:
+    nor: "data/raw/nor.txt"
+    toxic: "data/raw/toxic.txt"
+    obscene: "data/raw/obscene.txt"
+    insult: "data/raw/insult.txt"
+    identity_hate: "data/raw/identity_hate.txt"
+  min_word_freq: 3
+
+generator:
+  pretrain_epochs: 400
+  emb_dim: 300
+  hidden_dim: 1024
+  max_seq_length: 20
+  batch_size: 128
+  learning_rate: 0.0001
+  start_token: 1
+
+discriminator:
+  pretrain_epochs: 10
+  l2_reg_lambda: 0.2
+  batch_size: 128
+  learning_rate: 0.0001
+  updates_per_round: 4
+
+adversarial:
+  total_batches: 20
+  rollout_num: 16
+  gen_num: 10000
+
+ollama:
+  host: "http://localhost:11434"
+  model: "llama3.2"
+  temperature: 0.8
+  top_p: 0.95
+
+penalty:
+  enabled: true
+  encoder_model: "all-MiniLM-L6-v2"
+
+classifier:
+  model_name: "distilbert-base-uncased"
+  max_length: 128
+  batch_size: 32
+  epochs: 3
+  learning_rate: 0.00002
+  dropout: 0.3
+  use_class_weights: true
+
+seed: 42
